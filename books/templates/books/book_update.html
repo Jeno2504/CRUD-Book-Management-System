@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Book Price</title>
+</head>
+<body>
+    <h1>Update Price for: {{ book.title }}</h1>
+    <p>Author: {{ book.author }}</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <label>New Price:</label><br>
+        <input type="number" name="price" value="{{ book.price }}" required><br><br>
+        
+        <button type="submit">Update Price</button>
+    </form>
+    <br>
+    <a href="{% url 'book_list' %}">Cancel</a>
+</body>
+</html>
